@@ -3,23 +3,31 @@ const getSkins = (req, res, next) => {
 }
 
 const buySkin = (req, res, next) => {
-  res.json({ succes: true, data: 'buySkin' })
+  const { user } = req
+  res.json({ succes: true, data: user })
 }
 
 const getMySkins = (req, res, next) => {
-  res.json({ succes: true, data: 'getMySkins' })
+  const { user } = req
+  res.json({ succes: true, data: user })
 }
 
 const changeSkinColor = (req, res, next) => {
-  res.json({ succes: true, data: 'changeSkinColor' })
+  const { user } = req
+
+  res.json({ succes: true, data: user })
 }
 
 const deleteSkin = (req, res, next) => {
-  res.json({ succes: true, data: 'deleteSkin' })
+  const { user } = req
+
+  res.json({ succes: true, data: user })
 }
 
 const getSkin = (req, res, next) => {
-  res.json({ succes: true, data: 'getSkin' })
+  const { user } = req
+
+  res.json({ succes: true, data: user })
 }
 
 export default {
