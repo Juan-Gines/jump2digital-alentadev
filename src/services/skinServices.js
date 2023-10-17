@@ -4,8 +4,8 @@ const getSkins = async () => {
   return await getJson('./src/database/skins.json')
 }
 
-const getSkin = async () => {
-
+const getSkin = async (id) => {
+  return await getJson('./src/database/skins.json', id)
 }
 
 export default {
