@@ -15,6 +15,6 @@ router.put(routes.changeSkinColor, userExtractor, skinController.changeSkinColor
 
 router.delete(routes.deleteSkin, userExtractor, skinController.deleteSkin)
 
-router.get(routes.getSkin, userExtractor, skinController.getSkin)
+router.get(routes.getSkin, skinController.getSkin)
 
 export default router

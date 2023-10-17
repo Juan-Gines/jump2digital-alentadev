@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
-import { readFile } from 'fs/promises'
 import { errorMessages } from '../../constants/errorMessages.js'
+import getJson from '../../utils/getJson.js'
 
 // ! Error messages
 
@@ -19,7 +19,7 @@ const userExtractor = async (req, res, next) => {
       throw errorMessages.unauthorized
     }
     const decodedToken = jwt.verify(token, process.env.JWT_PRIVATE_KEY)
-    const usersJSON = await readFile('./src/database/users.json', 'utf-8')
+    const usersJSON = await getJson('./src/database/users.json')
     const userList = JSON.parse(usersJSON)
     const user = userList.find(u => u.id === decodedToken.id)
     if (!user) {

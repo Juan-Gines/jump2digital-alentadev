@@ -1,5 +1,9 @@
+import skinServices from '../services/skinServices.js'
+
 const getSkins = (req, res, next) => {
-  res.json({ succes: true, data: 'getSkins' })
+  skinServices.getSkins()
+    .then(data => res.json({ succes: true, data }))
+    .catch(error => next(error))
 }
 
 const buySkin = (req, res, next) => {
@@ -25,7 +29,7 @@ const deleteSkin = (req, res, next) => {
 }
 
 const getSkin = (req, res, next) => {
-  const { user } = req
+  const { id } = req.params
 
   res.json({ succes: true, data: user })
 }
