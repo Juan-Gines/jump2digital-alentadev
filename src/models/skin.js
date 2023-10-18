@@ -1,17 +1,21 @@
-import mongoose from 'mongoose'
-const { Schema } = mongoose
+import mysql from 'mysql2/promise'
+import getJson from '../utils/getJson.js'
 
-// * Schema de SkinModel
+const config = {
+  host: 'localhost',
+  user: 'root',
+  port: 3306,
+  password: '',
+  database: 'skinsdb'
+}
 
-const skinSchema = new Schema({
-  skinId: { type: Number, require: true },
-  userId: { type: Number, require: true },
-  skinName: { type: String, trim: true, require: true },
-  category: { type: String, trim: true, require: true },
-  class: { type: String, trim: true, require: true },
-  color: [{ type: String, trim: true }],
-  price: { type: Number }
-},
-{
-  timestamps: true
-})
+const connetion = await mysql.createConnection(config)
+export class SkinModel {
+  static async getAll () {
+    return await getJson('./src/database/skins.json')
+  }
+
+  static async getById (id) {
+    return await getJson('./src/database/skins.json', id)
+  }
+}

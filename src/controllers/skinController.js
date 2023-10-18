@@ -1,7 +1,7 @@
-import skinServices from '../services/skinServices.js'
+import { SkinModel } from '../models/skin.js'
 
 const getSkins = (req, res, next) => {
-  skinServices.getSkins()
+  SkinModel.getAll()
     .then(data => res.json({ succes: true, data }))
     .catch(error => next(error))
 }
@@ -30,7 +30,8 @@ const deleteSkin = (req, res, next) => {
 
 const getSkin = (req, res, next) => {
   const { id } = req.params
-  skinServices.getSkin(id)
+  console.log(id)
+  SkinModel.getById(id)
     .then(data => res.json({ succes: true, data }))
     .catch(error => next(error))
 }

@@ -1,33 +1,33 @@
 [
   {
     "id":1,
-    "skinName":"Caballero Oscuro",
+    "skinName":"Rey Oscuro",
     "category": "Legión Oscura",
-    "class": "Caballero",
+    "class": ["Caballero","Elfo","Enano","Orco"],
     "color": ["negro","violeta","azul oscuro"],
     "price": 500
   },
   {
     "id":2,
-    "skinName":"Elfo Oscuro",
+    "skinName":"Terrorífico",
     "category": "Legión Oscura",
-    "class": "Elfo",
+    "class": ["Caballero","Elfo","Enano","Orco"],
     "color": ["negro","violeta","azul oscuro"],
     "price": 500
   },
   {
     "id":3,
-    "skinName":"Enano Oscuro",
+    "skinName":"La noche más larga",
     "category": "Legión Oscura",
-    "class": "Enano",
+    "class": ["Caballero","Elfo","Enano","Orco"],
     "color": ["negro","violeta","azul oscuro"],
     "price": 500
   },
   {
     "id":4,
-    "skinName":"Orco Oscuro",
+    "skinName":"Tinieblas",
     "category": "Legión Oscura",
-    "class": "Orco",
+    "class": ["Caballero","Elfo","Enano","Orco"],
     "color": ["negro","violeta","azul oscuro"],
     "price": 500
   },
@@ -35,7 +35,7 @@
     "id":5,
     "skinName":"Caballero de la luz",
     "category": "Legión de la luz",
-    "class": "Caballero",
+    "class": ["Caballero","Elfo","Enano","Orco"],
     "color": ["oro","blanco","verde"],
     "price": 500
   },
@@ -43,7 +43,7 @@
     "id":6,
     "skinName":"Elfo de la luz",
     "category": "Legión de la luz",
-    "class": "Elfo",
+    "class": ["Caballero","Elfo","Enano","Orco"],
     "color": ["oro","blanco","verde"],
     "price": 500
   },
@@ -51,7 +51,7 @@
     "id":7,
     "skinName":"Enano de la luz",
     "category": "Legión de la luz",
-    "class": "Enano",
+    "class": ["Caballero","Elfo","Enano","Orco"],
     "color": ["oro","blanco","verde"],
     "price": 500
   },
@@ -59,39 +59,39 @@
     "id":8,
     "skinName":"Orco de la luz",
     "category": "Legión de la luz",
-    "class": "Orco",
+    "class": ["Caballero","Elfo","Enano","Orco"],
     "color": ["oro","blanco","verde"],
     "price": 500
   },
   {
     "id":9,
-    "skinName":"Caballero fiesta en la piscina",
+    "skinName":"Pistola de agua",
     "category": "Fiesta en la piscina",
-    "class": "Caballero",
+    "class": ["Caballero","Elfo","Enano","Orco"],
     "color": ["amarillo","azul","rojo"],
     "price": 350
   },
   {
     "id":10,
-    "skinName":"Elfo fista en la piscina",
+    "skinName":"Bañador a rayas",
     "category": "Fiesta en la piscina",
-    "class": "Elfo",
+    "class": ["Caballero","Elfo","Enano","Orco"],
     "color": ["amarillo","azul","rojo"],
     "price": 350
   },
   {
     "id":11,
-    "skinName":"Enano fista en la piscina",
+    "skinName":"Piña colada",
     "category": "Fiesta en la piscina",
-    "class": "Enano",
+    "class": ["Caballero","Elfo","Enano","Orco"],
     "color": ["amarillo","azul","rojo"],
     "price": 350
   },
   {
     "id":12,
-    "skinName":"Orco fista en la piscina",
+    "skinName":"Que fiestón",
     "category": "Fiesta en la piscina",
-    "class": "Orco",
+    "class": ["Caballero","Elfo","Enano","Orco"],
     "color": ["amarillo","azul","rojo"],
     "price": 350
   },
@@ -99,7 +99,7 @@
     "id":13,
     "skinName":"La muerte",
     "category": "Muerte",
-    "class": "Caballero",
+    "class": ["Caballero", "Orco"],
     "color": ["negro","blanco"],
     "price": 200
   },
@@ -107,7 +107,7 @@
     "id":14,
     "skinName":"Alto rey",
     "category": "Rey",
-    "class": "Elfo",
+    "class": ["Elfo","Caballero"],
     "color": ["gold","azul","rojo"],
     "price": 200
   },
@@ -115,7 +115,7 @@
     "id":15,
     "skinName":"El gran minero",
     "category": "Minero",
-    "class": "Enano",
+    "class": ["Enano"],
     "color": ["marron","gris"],
     "price": 200
   },
@@ -123,7 +123,7 @@
     "id":16,
     "skinName":"Siervo del mal",
     "category": "Oscura",
-    "class": "Orco",
+    "class": ["Orco"],
     "color": ["negro","gris","rojo"],
     "price": 200
   }  
