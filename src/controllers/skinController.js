@@ -1,4 +1,6 @@
 import { SkinModel } from '../models/skin.js'
+import { buySkinValidation } from '../schemas/skinSchemas.js'
+import { CustomError } from '../errors/CustomError.js'
 
 const getSkins = (req, res, next) => {
   SkinModel.getAll()
@@ -7,8 +9,17 @@ const getSkins = (req, res, next) => {
 }
 
 const buySkin = (req, res, next) => {
-  const { user } = req
-  res.json({ succes: true, data: user })
+  const { user, body } = req
+  const result = buySkinValidation(body, user)
+  if (result.error) throw new CustomError(400, JSON.parse(result.error.message))
+
+  SkinModel.create(user, result.data)
+    .then(skin => {
+      if (skin) {
+        res.json({ succes: true, skin })
+      }
+    })
+    .catch(error => next(error))
 }
 
 const getMySkins = (req, res, next) => {
@@ -30,7 +41,6 @@ const deleteSkin = (req, res, next) => {
 
 const getSkin = (req, res, next) => {
   const { id } = req.params
-  console.log(id)
   SkinModel.getById(id)
     .then(data => res.json({ succes: true, data }))
     .catch(error => next(error))

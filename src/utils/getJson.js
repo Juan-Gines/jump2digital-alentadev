@@ -10,14 +10,13 @@ const getJson = (url, id = null) => {
     readFile(url, 'utf-8')
       .then(content => JSON.parse(content))
       .then(data => {
-        console.log(id)
         const newData = id ? data.find(d => d.id === +id) : data
         if (newData) resolve(newData)
         else reject(new CustomError(404, errorMessages.notFound))
       })
       .catch(error => {
-        console.log(error)
-        reject(errorMessages.loadFile)
+        console.error(error)
+        reject(new CustomError(404, errorMessages.loadFile))
       })
   })
 }
