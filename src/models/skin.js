@@ -20,8 +20,8 @@ export class SkinModel {
     return await getJson('./src/database/skins.json', id)
   }
 
-  static async create (user, data) {
-    const [result] = await connetion.query('INSERT INTO skins (skin_id, user_id, name, category, type, color, price) VALUES (?,?,?,?,?,?,?)', [id, user.id, skinName, category, data.type, data.color, price])
+  static async create (data) {
+    const [result] = await connetion.query('INSERT INTO skins (skin_id, user_id, name, category, type, color, price) VALUES (?,?,?,?,?,?,?)', data)
 
     const [skin] = await connetion.query('SELECT * FROM skins WHERE id=?', [result.insertId])
 
