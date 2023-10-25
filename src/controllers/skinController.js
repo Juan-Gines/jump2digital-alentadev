@@ -13,6 +13,7 @@ const buySkin = async (req, res, next) => {
   await buySkinValidation(body, user)
     .then(result => {
       if (!result.success) throw new CustomError(400, JSON.parse(result.error.message))
+      return result
     })
     .then(result => {
       SkinModel.create(result.data)
