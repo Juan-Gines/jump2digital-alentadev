@@ -3,7 +3,7 @@
     "id":1,
     "name":"Juan",
     "email":"juan@test.com",
-    "coins": 1000,
+    "coins": 100,
     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.uS5QYmvsuNtJ5ai4p1_9CRppeq_lDs2fwStBixDrJV0"
   },
   {

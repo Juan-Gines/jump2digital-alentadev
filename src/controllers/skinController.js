@@ -8,16 +8,19 @@ const getSkins = (req, res, next) => {
     .catch(error => next(error))
 }
 
-const buySkin = (req, res, next) => {
+const buySkin = async (req, res, next) => {
   const { user, body } = req
-  const result = buySkinValidation(body, user)
-  if (result.error) throw new CustomError(400, JSON.parse(result.error.message))
-
-  SkinModel.create(user, result.data)
-    .then(skin => {
-      if (skin) {
-        res.json({ succes: true, skin })
-      }
+  await buySkinValidation(body, user)
+    .then(result => {
+      if (!result.success) throw new CustomError(400, JSON.parse(result.error.message))
+    })
+    .then(result => {
+      SkinModel.create(result.data)
+        .then(skin => {
+          if (skin) {
+            res.json({ succes: true, skin })
+          }
+        })
     })
     .catch(error => next(error))
 }

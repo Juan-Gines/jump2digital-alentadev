@@ -1,6 +1,5 @@
 import mysql from 'mysql2/promise'
 import getJson from '../utils/getJson.js'
-import { CustomError } from '../errors/CustomError.js'
 
 const config = {
   host: process.env.DB_HOST,
