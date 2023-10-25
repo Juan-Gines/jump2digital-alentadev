@@ -8,9 +8,9 @@ const getSkins = (req, res, next) => {
     .catch(error => next(error))
 }
 
-const buySkin = async (req, res, next) => {
+const buySkin = (req, res, next) => {
   const { user, body } = req
-  await buySkinValidation(body, user)
+  buySkinValidation(body, user)
     .then(result => {
       if (!result.success) throw new CustomError(400, JSON.parse(result.error.message))
       return result
@@ -28,7 +28,9 @@ const buySkin = async (req, res, next) => {
 
 const getMySkins = (req, res, next) => {
   const { user } = req
-  res.json({ succes: true, data: user })
+  SkinModel.getSkinsFromUser(user.id)
+    .then(data => res.json({ succes: true, data }))
+    .catch(error => next(error))
 }
 
 const changeSkinColor = (req, res, next) => {
@@ -40,7 +42,9 @@ const changeSkinColor = (req, res, next) => {
 const deleteSkin = (req, res, next) => {
   const { user } = req
   const { id } = req.params
-  res.json({ succes: true, data: { user, id } })
+  SkinModel.delete(user, id)
+    .then(data => res.json({ succes: true, data }))
+    .catch(error => next(error))
 }
 
 const getSkin = (req, res, next) => {

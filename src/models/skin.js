@@ -1,5 +1,7 @@
 import mysql from 'mysql2/promise'
 import getJson from '../utils/getJson.js'
+import { CustomError } from '../errors/CustomError.js'
+import { errorMessages } from '../constants/errorMessages.js'
 
 const config = {
   host: process.env.DB_HOST,
@@ -25,5 +27,24 @@ export class SkinModel {
     const [skin] = await connetion.query('SELECT * FROM skins WHERE id=?', [result.insertId])
 
     return skin[0]
+  }
+
+  static async getSkinsFromUser (id) {
+    const [skins] = await connetion.query('SELECT * FROM skins WHERE user_id=?', [id])
+
+    return skins
+  }
+
+  static async delete (user, id) {
+    const [result] = await connetion.query('SELECT * FROM skins WHERE id=?', [id])
+    const skin = result[0]
+    if (!skin) {
+      throw new CustomError(404, errorMessages.notFound)
+    } else if (skin.user_id === user.id) {
+      await connetion.query('DELETE FROM skins WHERE id=?', [id])
+      return 'Skin borrado con éxito'
+    } else {
+      throw new CustomError(400, errorMessages.unauthorized)
+    }
   }
 }
