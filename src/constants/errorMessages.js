@@ -4,5 +4,7 @@ export const errorMessages = Object.freeze({
   loadFile: 'Error leyendo archivo',
   notColor: 'Color no disponible',
   notType: 'Skin no disponible para este personaje',
-  insuficientCoins: 'No tienes suficientes coins para comprar este skin'
+  insuficientCoins: 'No tienes suficientes coins para comprar este skin',
+  colorMatch: 'Ya tienes el skin en este color',
+  colorChange: 'No se ha podido cambiar el color, intentalo más tarde'
 })

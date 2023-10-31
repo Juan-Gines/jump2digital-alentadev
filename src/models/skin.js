@@ -29,6 +29,23 @@ export class SkinModel {
     return skin[0]
   }
 
+  static async changeColor (data) {
+    const [result] = await connetion.query('UPDATE skins SET color = ? WHERE id = ?', data)
+
+    if (result.affectedRows === 1) {
+      const skin = await this.getSkinFromUserById(data[1])
+      return skin
+    } else {
+      throw new CustomError(500, errorMessages.colorChange)
+    }
+  }
+
+  static async getSkinFromUserById (id) {
+    const [skin] = await connetion.query('SELECT * FROM skins WHERE id = ?', [id])
+
+    return skin[0]
+  }
+
   static async getSkinsFromUser (id) {
     const [skins] = await connetion.query('SELECT * FROM skins WHERE user_id=?', [id])
 
