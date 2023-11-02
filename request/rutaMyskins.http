@@ -1,0 +1,31 @@
+### Devuelve las skins del usuario 1
+GET http://localhost:3001/skins/myskins HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.uS5QYmvsuNtJ5ai4p1_9CRppeq_lDs2fwStBixDrJV0
+
+### Devuelve las skins del usuario 2
+GET http://localhost:3001/skins/myskins HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mn0.9-YCDunjoaKVYYhVaFk8LAL8EsAChVWToIiZpJ8ogCA
+
+### Devuelve las skins del usuario 3
+GET http://localhost:3001/skins/myskins HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6M30.MArmGyHMJsYKaDWn5zGoEox6agp0ERRBXa6clb1DfHw
+
+### Devuelve las skins del usuario 4
+### Este usuario no tiene skins
+GET http://localhost:3001/skins/myskins HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NH0.GcIlSu_3dXzExX46N1jANg_HPSik0guWFMSFopnHRpg
+
+### ! ERRORES
+
+### ! Intento obtener skills sin autentificar
+GET http://localhost:3001/skins/myskins HTTP/1.1
+Content-Type: application/json
+
+### ! Intento obtener skills autentificazion errónea
+GET http://localhost:3001/skins/myskins HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6M30.MArmGyHMJsYKaDWn5zGoEox6agp0ERRBXa7clb1DfHw

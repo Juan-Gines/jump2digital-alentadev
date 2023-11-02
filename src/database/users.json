@@ -17,14 +17,14 @@
     "id":3,
     "name":"Raquel",
     "email":"raquel@test.com",
-    "coins": 50,
+    "coins": 200,
     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6M30.MArmGyHMJsYKaDWn5zGoEox6agp0ERRBXa6clb1DfHw"
   },
   {
     "id":4,
     "name":"Ariadna",
     "email":"ariadna@test.com",
-    "coins": 200,
+    "coins": 50,
     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NH0.GcIlSu_3dXzExX46N1jANg_HPSik0guWFMSFopnHRpg"
   }
 ]

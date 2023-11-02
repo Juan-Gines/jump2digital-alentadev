@@ -2,16 +2,10 @@ import mysql from 'mysql2/promise'
 import getJson from '../utils/getJson.js'
 import { CustomError } from '../errors/CustomError.js'
 import { errorMessages } from '../constants/errorMessages.js'
+import { messages } from '../constants/messages.js'
+import { dbConfig } from '../config/db.js'
 
-const config = {
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  port: process.env.DB_PORT,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME
-}
-
-const connetion = await mysql.createConnection(config)
+const connetion = await mysql.createConnection(dbConfig)
 export class SkinModel {
   static async getAll () {
     return await getJson('./src/database/skins.json')
@@ -48,7 +42,7 @@ export class SkinModel {
 
   static async getSkinsFromUser (id) {
     const [skins] = await connetion.query('SELECT * FROM skins WHERE user_id=?', [id])
-
+    if (skins.length === 0) return { message: messages.notSkins }
     return skins
   }
 
@@ -59,7 +53,7 @@ export class SkinModel {
       throw new CustomError(404, errorMessages.notFound)
     } else if (skin.user_id === user.id) {
       await connetion.query('DELETE FROM skins WHERE id=?', [id])
-      return 'Skin borrado con éxito'
+      return { message: messages.skinDeleted }
     } else {
       throw new CustomError(400, errorMessages.unauthorized)
     }

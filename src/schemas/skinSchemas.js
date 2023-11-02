@@ -7,6 +7,8 @@ import { CustomError } from '../errors/CustomError.js'
 
 const buySchema = z.object({
   id: z.number().int().positive(),
+  skinName: z.string(),
+  category: z.string(),
   types: z.array(z.string()),
   type: z.string(),
   colors: z.array(z.string()),
@@ -16,7 +18,7 @@ const buySchema = z.object({
 })
   .refine((data) => data.types.includes(data.type), { message: errorMessages.notType })
   .refine((data) => data.colors.includes(data.color), { message: errorMessages.notColor })
-  .refine((data) => data.price < data.coins, { message: errorMessages.insuficientCoins })
+  .refine((data) => data.price <= data.coins, { message: errorMessages.insuficientCoins })
 
 // * Función de validación de la ruta buyskin
 
@@ -32,6 +34,8 @@ const buySkinValidation = async (body, user) => {
 
   const schemaForValidate = {
     id,
+    skinName,
+    category,
     type,
     color,
     types,

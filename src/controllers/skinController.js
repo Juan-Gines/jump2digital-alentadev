@@ -21,7 +21,7 @@ const buySkin = (req, res, next) => {
     .then(result => {
       // Si los datos son correctos procedemos a crear el skin
       SkinModel.create(result.data)
-        .then(skin => res.json({ succes: true, skin }))
+        .then(skin => res.status(201).json({ succes: true, skin }))
         .catch(error => next(error))
     })
     .catch(error => next(error))

@@ -1,0 +1,11 @@
+### Devuelve un skin
+GET http://localhost:3001/skins/getskin/5 HTTP/1.1
+
+### ! ERRORES
+
+###  ! Intento obtener una skin que no existe
+GET http://localhost:3001/skins/getskin/30 HTTP/1.1
+
+### ! Intento obtener una skill errónea
+GET http://localhost:3001/skins/getskin/skillerronea HTTP/1.1
+

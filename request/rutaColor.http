@@ -1,0 +1,83 @@
+### Cambiamos el color a un skin del usuario 1
+### Enviado el id, el nuevo color del skin y el token de autorización
+### ! OJO Si intentas reenviar la petición te va a dar error 400
+### ! Ya que no te va a permitir cambiar al mismo color que ya tiene el skin 
+PUT http://localhost:3001/skins/color HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.uS5QYmvsuNtJ5ai4p1_9CRppeq_lDs2fwStBixDrJV0
+
+{
+  "id": 1,
+  "newColor": "azul oscuro"
+}
+
+### ! ERRORES
+
+### ! Intentamos cambiar el color no disponible a un skin del usuario 1
+PUT http://localhost:3001/skins/color HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.uS5QYmvsuNtJ5ai4p1_9CRppeq_lDs2fwStBixDrJV0
+
+{
+  "id": 1,
+  "newColor": "cyan"
+}
+
+### ! Intentamos cambiar el color a un skin inexistente del usuario 1
+PUT http://localhost:3001/skins/color HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.uS5QYmvsuNtJ5ai4p1_9CRppeq_lDs2fwStBixDrJV0
+
+{
+  "id": 50,
+  "newColor": "azul oscuro"
+}
+
+### ! Intentamos cambiar el color a un skin del usuario 1 con el body vacio
+PUT http://localhost:3001/skins/color HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.uS5QYmvsuNtJ5ai4p1_9CRppeq_lDs2fwStBixDrJV0
+
+{
+  
+}
+
+### ! Intentamos cambiar el color a un skin del usuario 1 sin enviar el nuevo color
+PUT http://localhost:3001/skins/color HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.uS5QYmvsuNtJ5ai4p1_9CRppeq_lDs2fwStBixDrJV0
+
+{
+  "id": 1
+}
+
+### ! Intentamos cambiar el color de un skin del usuario 1
+### ! Con el token de autorización del usuario 2
+PUT http://localhost:3001/skins/color HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mn0.9-YCDunjoaKVYYhVaFk8LAL8EsAChVWToIiZpJ8ogCA
+
+{
+  "id": 1,
+  "newColor": "azul oscuro"
+}
+
+### ! Intentamos cambiar el color de un skin 
+### ! Sin token de autorización
+PUT http://localhost:3001/skins/color HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 5,
+  "newColor": "azul oscuro"
+}
+
+### ! Intentamos cambiar el color con un token inválido
+PUT http://localhost:3001/skins/color HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6M30.MArmGyHMJsYKaDWn5zGoEoxtagp0ERRBXa6clb1DfHw
+
+{
+  "id": 5,
+  "newColor": "azul oscuro"
+}

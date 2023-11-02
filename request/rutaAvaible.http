@@ -1,0 +1,30 @@
+### Devuelve los skins disponibles
+### Las skins tienen estos campos:
+###   - id: int - identificador
+###   - skinName: string - nombre de la skin
+###   - category: string - categoría de la skin
+###   - types: array[string] - con los diferentes tipos de skin disponible
+###   - colors: array[string] - con los diferentes colores disponibles
+###   - price: int - el valor del skin en coins
+GET http://localhost:3001/skins/avaible HTTP/1.1
+
+### ! ERRORES
+
+### ! Cualquier otra ruta que no este especificada 
+### ! No va a funcionar
+
+GET http://localhost:3001/ HTTP/1.1
+###
+GET http://localhost:3001/skins/ HTTP/1.1
+
+###
+POST http://localhost:3001/skins/avaible HTTP/1.1
+
+###
+PUT http://localhost:3001/skins/avaible HTTP/1.1
+
+###
+DELETE http://localhost:3001/skins/avaible HTTP/1.1
+
+###
+PATCH http://localhost:3001/skins/avaible HTTP/1.1

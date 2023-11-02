@@ -35,7 +35,7 @@
     "id":5,
     "skinName":"Caballero de la luz",
     "category": "Legión de la luz",
-    "types": ["Caballero","Elfo","Enano","Orco"],
+    "types": ["Caballero"],
     "colors": ["oro","blanco","verde"],
     "price": 500
   },
@@ -43,7 +43,7 @@
     "id":6,
     "skinName":"Elfo de la luz",
     "category": "Legión de la luz",
-    "types": ["Caballero","Elfo","Enano","Orco"],
+    "types": ["Elfo"],
     "colors": ["oro","blanco","verde"],
     "price": 500
   },
@@ -51,7 +51,7 @@
     "id":7,
     "skinName":"Enano de la luz",
     "category": "Legión de la luz",
-    "types": ["Caballero","Elfo","Enano","Orco"],
+    "types": ["Enano"],
     "colors": ["oro","blanco","verde"],
     "price": 500
   },
@@ -59,7 +59,7 @@
     "id":8,
     "skinName":"Orco de la luz",
     "category": "Legión de la luz",
-    "types": ["Caballero","Elfo","Enano","Orco"],
+    "types": ["Orco"],
     "colors": ["oro","blanco","verde"],
     "price": 500
   },
@@ -108,7 +108,7 @@
     "skinName":"Alto rey",
     "category": "Rey",
     "types": ["Elfo","Caballero"],
-    "colors": ["gold","azul","rojo"],
+    "colors": ["oro","azul","rojo"],
     "price": 200
   },
   {

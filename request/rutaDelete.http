@@ -1,0 +1,24 @@
+### Borramos una skin del usuario 1
+### Necesitamos pasarle el token del usuario y la id en la url
+DELETE http://localhost:3001/skins/delete/4 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.uS5QYmvsuNtJ5ai4p1_9CRppeq_lDs2fwStBixDrJV0
+
+### ! ERRORES
+
+### ! Intentamos borrar una skin del usuario 1
+### ! Utilizando el token de autorización del usuario 2
+DELETE http://localhost:3001/skins/delete/1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mn0.9-YCDunjoaKVYYhVaFk8LAL8EsAChVWToIiZpJ8ogCA
+
+### ! Intentamos borrar una skin del usuario 1
+### ! Utilizando el token de autorización erróneo
+DELETE http://localhost:3001/skins/delete/1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.uS5QYmvsuNtJ5ai4p1_9CRppeq_lDs1fwStBixDrJV0
+
+### ! Intentamos borrar una skin del usuario 1
+### ! Sin pasarle el token de autorización
+DELETE http://localhost:3001/skins/delete/1 HTTP/1.1
+
+### ! Intentamos borrar una skin inexistente
+DELETE http://localhost:3001/skins/delete/40 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.uS5QYmvsuNtJ5ai4p1_9CRppeq_lDs2fwStBixDrJV0
