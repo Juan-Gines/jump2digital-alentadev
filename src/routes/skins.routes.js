@@ -3,6 +3,8 @@ import { routes } from '../constants/routes.js'
 import skinController from '../controllers/skinController.js'
 import userExtractor from '../middleware/auth/userExtractor.js'
 
+// Rutas de skin
+
 const router = express.Router()
 
 router.get(routes.getSkins, skinController.getSkins)

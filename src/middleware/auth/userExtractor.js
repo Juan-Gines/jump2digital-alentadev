@@ -3,7 +3,7 @@ import { errorMessages } from '../../constants/errorMessages.js'
 import getJson from '../../utils/getJson.js'
 import { CustomError } from '../../errors/CustomError.js'
 
-// * Verificamos el token y guardamos el usuario en la req.user para usarlo
+// * Verificamos el token y guardamos el usuario en la req.user para usarlo más adelante
 
 const userExtractor = async (req, res, next) => {
   const { authorization } = req.headers

@@ -45,6 +45,7 @@ const changeSkinColor = (req, res, next) => {
       return result
     })
     .then(result => {
+      // Si los datos son correctos cambiamos el color del skin
       SkinModel.changeColor(result.data)
         .then(skin => res.json({ succes: true, skin }))
         .catch(error => next(error))
@@ -52,6 +53,7 @@ const changeSkinColor = (req, res, next) => {
     .catch(error => next(error))
 }
 
+// * Borramos una skin
 const deleteSkin = (req, res, next) => {
   const { user } = req
   const { id } = req.params
@@ -60,6 +62,7 @@ const deleteSkin = (req, res, next) => {
     .catch(error => next(error))
 }
 
+// * Obtenemos una skin disponible para comprar
 const getSkin = (req, res, next) => {
   const { id } = req.params
   SkinModel.getById(id)

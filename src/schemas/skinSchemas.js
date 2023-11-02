@@ -4,7 +4,6 @@ import { errorMessages } from '../constants/errorMessages.js'
 import { CustomError } from '../errors/CustomError.js'
 
 // * Creamos el schema que validará que los datos sean correctos
-
 const buySchema = z.object({
   id: z.number().int().positive(),
   skinName: z.string(),
@@ -21,17 +20,14 @@ const buySchema = z.object({
   .refine((data) => data.price <= data.coins, { message: errorMessages.insuficientCoins })
 
 // * Función de validación de la ruta buyskin
-
 const buySkinValidation = async (body, user) => {
   const { id, type, color } = body
   const { coins } = user
 
   // * Recuperamos el skin
-
   const { skinName, category, types, colors, price } = await SkinModel.getById(id)
 
   // * recopilamos los datos para validar
-
   const schemaForValidate = {
     id,
     skinName,
@@ -46,11 +42,9 @@ const buySkinValidation = async (body, user) => {
   // * Validamos los tipos que nos llegan del body
   // * Si son correctos validamos que sean válidas las opciones de tipo y color
   // * Y si el usuario tiene suficientes coins para comprar el skin
-
   const result = buySchema.safeParse(schemaForValidate)
 
   // * Si todo sale bien devolvemos los datos limpios para meter en la BBDD
-
   if (result.success) {
     result.data = [
       id,
@@ -67,7 +61,6 @@ const buySkinValidation = async (body, user) => {
 }
 
 // * Schema de validación del cambio de color
-
 const changeColorSchema = z.object({
   id: z.number().int().positive(),
   colors: z.array(z.string()),
@@ -116,6 +109,7 @@ const changeColorValidation = async (body, user) => {
 
   return result
 }
+
 export {
   buySkinValidation,
   changeColorValidation

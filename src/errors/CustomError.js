@@ -1,3 +1,5 @@
+// Error customizado para devolver un json con el status definido
+
 export class CustomError extends Error {
   constructor (status, mess, ...params) {
     super(...params)

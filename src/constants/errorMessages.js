@@ -1,3 +1,5 @@
+// Mensajes de error
+
 export const errorMessages = Object.freeze({
   notFound: 'Error 404 - No se ha encontrado este recurso.',
   unauthorized: 'Usuario no autorizado.',
@@ -6,5 +8,6 @@ export const errorMessages = Object.freeze({
   notType: 'Skin no disponible para este personaje.',
   insuficientCoins: 'No tienes suficientes coins para comprar este skin.',
   colorMatch: 'Ya tienes el skin en este color.',
-  colorChange: 'No se ha podido cambiar el color, intentalo más tarde.'
+  colorChange: 'No se ha podido cambiar el color, intentalo más tarde.',
+  skinCreate: 'No se ha podido crear el skin.'
 })

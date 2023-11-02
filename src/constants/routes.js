@@ -1,3 +1,5 @@
+// rutas de skin
+
 export const routes = Object.freeze({
   skins: '/skins',
   getSkins: '/avaible',
