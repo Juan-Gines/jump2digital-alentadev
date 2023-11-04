@@ -5,9 +5,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.uS5QYmvsuNtJ5ai4p1_9CRppeq_lDs2fwStBixDrJV0
 
 {
-  "id": 5,
+  "id": 1,
   "type": "Enano",
-  "color": "verde"
+  "color": "negro"
 }
 
 ### Usuario 2 (Maria) compra un skin

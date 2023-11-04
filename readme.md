@@ -48,20 +48,20 @@ Hay 2 rutas GET públicas y el resto son privadas de cada usuario.
 
 ### Públicas
 
-- ```GET /skins/avaible``` - Fácil enviamos la petición get y nos devolverá un array con las **skins disponibles**.
-- ```GET /skins/getskin/{id}``` - Lo mismo que la anterior y nos devolverá el **skin** elegido por su **id**.
+- ```GET /skins/avaible``` - Enviamos la petición get y nos devolverá un array con las **skins disponibles**.
+- ```GET /skins/getskin/{id}``` - Enviamos la petición get con la **id** y nos devolverá el **skin disponible** elegido por su **id**.
 
 ### Privadas
 
-Estas rutas por su naturaleza pasan por un middleware de autenticación ```src/middleware/auth/userExtractor.js```. Para ello he utilizado **JasonWebToken** y hay que pasarselo por el header de **Authorization** en formato **Token Bearer**. 
+Estas rutas por su naturaleza pasan por un middleware de autenticación ```src/middleware/auth/userExtractor.js```. Para ello he utilizado **JsonWebToken**, hay que pasárselo por el header de **Authorization** en formato **Token Bearer**. 
 
 Pero no te preocupes que en el archivo de los usuarios ```src/database/users.json``` cada uno tiene su token que contiene su id. Además en el ```.env.example``` tienes el **JWT_PRIVATE_KEY** para que pueda desencriptarlo, la key es "12345678".
 
-Bien resumiendo el middleware extrae la id del usuario del **JWT**. Con la id recuperamos el **user** y lo añadimos a la propiedad de la request ```req.user``` para poderlo usar más adelante.
+Resumiendo, el middleware extrae la id del usuario del **JWT**. Con la id recuperamos el **user** y lo añadimos a la propiedad de la request ```req.user``` para poder usarlo más adelante.
 
 #### Rutas
 
-- ```POST /sins/buy``` - Para esta ruta hay que enviarle un body en formato **JSON** que contenga la **id**, el **tipo** y el **color** de la **skin deseada**. El tipo y el color deben estar **disponibles**, dentro de los arrays **colors y types** del skin. Además el usuario tiene que tener suficientes **coins** para poderlo comprar.
+- ```POST /sins/buy``` - Para esta ruta hay que enviarle un body en formato **JSON** que contenga la **id**, el **tipo** y el **color** de la **skin deseada**. El tipo y el color deben estar **disponibles** dentro de los arrays **colors y types** del skin. Además el usuario tiene que tener suficientes **coins** para poder comprarlo.
 
 ```
 {
@@ -80,8 +80,51 @@ Bien resumiendo el middleware extrae la id del usuario del **JWT**. Con la id re
 }
 ```
 
-- ```GET /skins/myskins``` - Esta es sencilla le enviaremos la petición junto con el **JWT** descrito anteriormente. Si es correcto devolverá todos los **skins comprados** por este **usuario**.
+- ```GET /skins/myskins``` - Enviaremos la petición junto con el **JWT** descrito anteriormente. Si es correcto devolverá todos los **skins comprados** por este **usuario**.
 
 - ```DELETE /skins/delete/{id}``` - Aquí la api comprobará que el **id** coincide con un **skin comprado**. Certificará que el skin pertenece al **usuario** y lo borrará.
 
-## Instrucciones para 
+## Instrucciones para ejecutarlo
+
+Clonamos el repositorio.
+
+```
+git clone https://github.com/Juan-Gines/jump2digital-alentadev.git 
+```
+
+Instalamos las dependencias.
+
+```
+npm install
+```
+
+Creamos la BBDD ejecutando el script sql, también le insertará unos cuantos registros para probar los endpoints.
+
+URL del script.
+
+```
+src/database/skinsdb.sql
+```
+
+Ahora necesitamos configurar la api. Crearemos el archivo ```.env``` a partir del ```.env.example``` y cambiaremos los valores de conexión a la **BBDD** (**DB_USER**,**DB_PASSWORD** y si usas otro puerto el **DB_PORT**)
+
+Ahora ya podemos ejecutar la api.
+
+```
+npm start
+```
+
+## Probar los endpoints
+
+En la carpeta ```request/``` hay unos archivos con request para probar todos los endpoints. Están preparadas para la extensión **REST Client** de **Visual Studio Code**. Si no utilizas esta extensión no hay problema, te pueden servir de guía para crear tus propias request con el programa que vayas a utilizar.
+
+## Agradecimientos
+
+Quiero agradecer a **Jump2Digital** la oportunidad que me han brindado.
+
+Espero que disfruteis con esta api tanto como yo desarrollandola.
+
+Cualquier duda, aclaración o problemas enviad un email.
+
+Juan Ginés Alentà - AlentaDev
+

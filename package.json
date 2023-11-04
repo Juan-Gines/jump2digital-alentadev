@@ -5,6 +5,7 @@
   "description": "Proyecto para hackaton Jump2Digital Barcelona 2023 - AlentaDev",
   "main": "src/index.js",
   "scripts": {
+    "start": "node ./src/index.js",
     "dev": "node --watch ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
