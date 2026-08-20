@@ -39,9 +39,9 @@ Estas rutas requieren el encabezado `Authorization` con un token Bearer válido.
 
 ## Recorrido de uso
 
-1. Consultá `GET /skins/avaible` y elegí una skin junto con uno de sus tipos y colores permitidos.
-2. Usá uno de los usuarios y JWT de demostración versionados como fixtures didácticos para ejecutar la demo autocontenida de inmediato. No los reutilices fuera de este entorno.
-3. Enviá `POST /skins/buy` con el token y un cuerpo como este:
+1. Consulta `GET /skins/avaible` y elige una skin junto con uno de sus tipos y colores permitidos.
+2. Usa uno de los usuarios y JWT de demostración versionados como fixtures didácticos para ejecutar la demo autocontenida de inmediato. No los reutilices fuera de este entorno.
+3. Envía `POST /skins/buy` con el token y un cuerpo como este:
 
    ```json
    {
@@ -51,7 +51,7 @@ Estas rutas requieren el encabezado `Authorization` con un token Bearer válido.
    }
    ```
 
-4. Consultá `GET /skins/myskins`, cambiá un color con `PUT /skins/color` o eliminá una compra con `DELETE /skins/delete/:id`.
+4. Consulta `GET /skins/myskins`, cambia un color con `PUT /skins/color` o elimina una compra con `DELETE /skins/delete/:id`.
 
 La carpeta [`request/`](./request/) incluye peticiones para la extensión REST Client de Visual Studio Code y sirve también como referencia para otros clientes HTTP.
 
@@ -94,9 +94,9 @@ npm install
 cp .env.example .env
 ```
 
-Creá el esquema y los registros iniciales ejecutando [`src/database/skinsdb.sql`](./src/database/skinsdb.sql) contra MySQL. El script recrea la base de datos `skinsdb`, por lo que debe usarse únicamente en un entorno local de demostración.
+Crea el esquema y los registros iniciales ejecutando [`src/database/skinsdb.sql`](./src/database/skinsdb.sql) contra MySQL. El script recrea la base de datos `skinsdb`, por lo que debe usarse únicamente en un entorno local de demostración.
 
-Después, configurá en `.env` los valores de servidor, conexión MySQL y secreto JWT: `URL`, `PORT`, `DB_HOST`, `DB_USER`, `DB_PORT`, `DB_PASSWORD`, `DB_NAME` y `JWT_PRIVATE_KEY`. Con el esquema preparado y esas variables configuradas, la API se ejecuta sin modificar el código:
+Después, configura en `.env` los valores de servidor, conexión MySQL y secreto JWT: `URL`, `PORT`, `DB_HOST`, `DB_USER`, `DB_PORT`, `DB_PASSWORD`, `DB_NAME` y `JWT_PRIVATE_KEY`. Con el esquema preparado y esas variables configuradas, la API se ejecuta sin modificar el código:
 
 ```bash
 npm start
